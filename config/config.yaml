@@ -1,0 +1,43 @@
+# Personal Knowledge Assistant Configuration
+
+# Embedding Configuration
+embedding:
+  model: "text-embedding-3-small"  # OpenAI embedding model
+  dimensions: 1536                  # Embedding dimensions
+  batch_size: 100                   # Batch size for processing
+
+# Document Processing Configuration
+chunking:
+  chunk_size: 1000                  # Size of text chunks in tokens
+  chunk_overlap: 200                # Overlap between chunks in tokens
+  min_chunk_size: 100               # Minimum chunk size
+
+# Vector Store Configuration
+vector_store:
+  index_path: "vector_db"           # Path to store FAISS index
+  save_frequency: 100               # Save index every N additions
+
+# Retrieval Configuration
+retrieval:
+  top_k: 5                          # Number of chunks to retrieve
+  similarity_threshold: 0.7         # Minimum similarity score
+  max_context_tokens: 3000          # Maximum tokens in context
+
+# Language Model Configuration
+llm:
+  model: "gpt-4o-mini"              # OpenAI model for generation
+  temperature: 0.3                  # Temperature for generation
+  max_tokens: 500                   # Maximum tokens in response
+  
+# Document Processing
+documents:
+  input_directory: "documents"      # Directory containing PDFs
+  supported_formats:
+    - ".pdf"
+  
+# Logging Configuration
+logging:
+  level: "INFO"                     # Log level: DEBUG, INFO, WARNING, ERROR
+  file: "qa_system.log"             # Log file path
+  max_file_size: 10485760           # 10 MB
+  backup_count: 3                   # Number of backup log files
